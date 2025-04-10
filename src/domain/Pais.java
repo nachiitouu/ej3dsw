@@ -3,6 +3,10 @@ package domain;
 public class Pais {
     private String nombre;
 
+    public Pais() {
+    }
+
+    
     public Pais(String nombre) {
         this.nombre = nombre;     
     }
@@ -15,4 +19,8 @@ public class Pais {
         this.nombre = nombre;
     }
     
+    @Override
+    public String toString(){
+        return this.nombre;
+    }
 }

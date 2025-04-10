@@ -27,26 +27,29 @@ public class Persistencia {
         sectores.add(new Sector(4, -26.257250, -65.523514, 10, TipoAlimentacion.CARNIVORO, raul));
     }
     
-    private static void inicializarAnimales() throws InvalidPropertiesFormatException {
+   /* private static void inicializarAnimales() throws InvalidPropertiesFormatException {
         animales.add(new Carnivoro(5,250,especies.get(0), sectores.get(1), paises.get(0)));
         animales.add(new Carnivoro(2,180,especies.get(2), sectores.get(3), paises.get(2)));
         animales.add(new Herbivoro(3, 1020,especies.get(1), sectores.get(0), 170, paises.get(4)));
         animales.add(new Herbivoro(8, 3800,especies.get(3), sectores.get(2), 320, paises.get(1)));
+    }*/
+    public static void cargarAnimales(Mamifero animal){
+        animales.add(animal);
     }
     
     private static void inicializarPaises(){
-        paises.add(new Pais("Madagascar","450"));
-        paises.add(new Pais("Rusia","643"));
-        paises.add(new Pais("India","356"));
-        paises.add(new Pais("Brasil","076"));
-        paises.add(new Pais("Australia","036"));
+        paises.add(new Pais("Madagascar"));
+        paises.add(new Pais("Rusia"));
+        paises.add(new Pais("India"));
+        paises.add(new Pais("Brasil"));
+        paises.add(new Pais("Australia"));
     }
 
     public static void inicializar() throws InvalidPropertiesFormatException{
         inicializarEspecies();
         inicializarSectores();
         inicializarPaises();
-        inicializarAnimales();
+       // inicializarAnimales();
     }
 
     public static ArrayList<Mamifero> getAnimales() {
@@ -61,6 +64,10 @@ public class Persistencia {
         return especies;
     }
 
+    public static ArrayList<Pais> getPaises(){
+        return paises;
+    }
+    
     public static double getTotalComida(TipoAlimentacion tipoAlimentacion) {
         double total = 0;
         for(Mamifero animal : animales){

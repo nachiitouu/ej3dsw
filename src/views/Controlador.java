@@ -18,6 +18,10 @@ public class Controlador {
         return Persistencia.getSectores();
     }
     
+    public static ArrayList<Pais> getPaises(){
+        return Persistencia.getPaises();
+    }
+    
     public static ArrayList<AnimalViewModel> getAnimales(){
         ArrayList<AnimalViewModel> animales = new ArrayList<>();
         for(Mamifero animal : Persistencia.getAnimales()){
@@ -30,5 +34,19 @@ public class Controlador {
         double totalCarnivoros = Persistencia.getTotalComida(TipoAlimentacion.CARNIVORO);
         double totalHerbivoros = Persistencia.getTotalComida(TipoAlimentacion.HERBIVORO);
         return new ComidaViewModel(totalCarnivoros, totalHerbivoros);
+    }
+    
+    public static void ListarAnimalesView(){
+        ListarAnimalesView view = new ListarAnimalesView();
+        view.setVisible(true);
+    }
+    
+    public static void AgregarAnimalView(){
+        AgregarAnimalView view = new AgregarAnimalView();
+        view.setVisible(true);
+    }
+    
+    public static void guardarAnimales(Mamifero animal){
+        Persistencia.cargarAnimales(animal);
     }
 }
